@@ -1,0 +1,5 @@
+E:\Dropbox\VSB_SAN\knihovna\Projekt\Knihovna_SAN\DatabaseLibrary\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Jura\Desktop\Knihovna_SAN\DatabaseLibrary\bin\Release\DatabaseLibrary.dll
+C:\Users\Jura\Desktop\Knihovna_SAN\DatabaseLibrary\bin\Release\DatabaseLibrary.pdb
+C:\Users\Jura\Desktop\Knihovna_SAN\DatabaseLibrary\obj\x86\Release\DatabaseLibrary.dll
+C:\Users\Jura\Desktop\Knihovna_SAN\DatabaseLibrary\obj\x86\Release\DatabaseLibrary.pdb

@@ -1,0 +1,8 @@
+C:\Users\Jura\Desktop\Knihovna_SAN\Knihovna_SAN\bin\x86\Release\Web.config
+C:\Users\Jura\Desktop\Knihovna_SAN\Knihovna_SAN\bin\x86\Release\Knihovna_SAN.dll
+C:\Users\Jura\Desktop\Knihovna_SAN\Knihovna_SAN\bin\x86\Release\Knihovna_SAN.pdb
+C:\Users\Jura\Desktop\Knihovna_SAN\Knihovna_SAN\bin\x86\Release\DatabaseLibrary.dll
+C:\Users\Jura\Desktop\Knihovna_SAN\Knihovna_SAN\bin\x86\Release\DatabaseLibrary.pdb
+C:\Users\Jura\Desktop\Knihovna_SAN\Knihovna_SAN\obj\x86\Release\Knihovna_SAN.csprojResolveAssemblyReference.cache
+C:\Users\Jura\Desktop\Knihovna_SAN\Knihovna_SAN\obj\x86\Release\Knihovna_SAN.dll
+C:\Users\Jura\Desktop\Knihovna_SAN\Knihovna_SAN\obj\x86\Release\Knihovna_SAN.pdb

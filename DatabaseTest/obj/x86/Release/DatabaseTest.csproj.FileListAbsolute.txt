@@ -1,0 +1,7 @@
+C:\Users\Jura\Desktop\Knihovna_SAN\DatabaseTest\bin\Release\DatabaseTest.exe
+C:\Users\Jura\Desktop\Knihovna_SAN\DatabaseTest\bin\Release\DatabaseTest.pdb
+C:\Users\Jura\Desktop\Knihovna_SAN\DatabaseTest\bin\Release\DatabaseLibrary.dll
+C:\Users\Jura\Desktop\Knihovna_SAN\DatabaseTest\bin\Release\DatabaseLibrary.pdb
+C:\Users\Jura\Desktop\Knihovna_SAN\DatabaseTest\obj\x86\Release\DatabaseTest.csprojResolveAssemblyReference.cache
+C:\Users\Jura\Desktop\Knihovna_SAN\DatabaseTest\obj\x86\Release\DatabaseTest.exe
+C:\Users\Jura\Desktop\Knihovna_SAN\DatabaseTest\obj\x86\Release\DatabaseTest.pdb
