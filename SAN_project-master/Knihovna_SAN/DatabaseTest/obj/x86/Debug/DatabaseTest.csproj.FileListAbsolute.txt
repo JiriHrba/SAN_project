@@ -1,0 +1,7 @@
+C:\Users\Petr\Documents\School\MGR\3. semestr\Systemova analyza a navrh\new\Knihovna_SAN\DatabaseTest\bin\Debug\DatabaseTest.exe
+C:\Users\Petr\Documents\School\MGR\3. semestr\Systemova analyza a navrh\new\Knihovna_SAN\DatabaseTest\bin\Debug\DatabaseTest.pdb
+C:\Users\Petr\Documents\School\MGR\3. semestr\Systemova analyza a navrh\new\Knihovna_SAN\DatabaseTest\bin\Debug\DatabaseLibrary.dll
+C:\Users\Petr\Documents\School\MGR\3. semestr\Systemova analyza a navrh\new\Knihovna_SAN\DatabaseTest\bin\Debug\DatabaseLibrary.pdb
+C:\Users\Petr\Documents\School\MGR\3. semestr\Systemova analyza a navrh\new\Knihovna_SAN\DatabaseTest\obj\x86\Debug\DatabaseTest.exe
+C:\Users\Petr\Documents\School\MGR\3. semestr\Systemova analyza a navrh\new\Knihovna_SAN\DatabaseTest\obj\x86\Debug\DatabaseTest.pdb
+C:\Users\Petr\Documents\School\MGR\3. semestr\Systemova analyza a navrh\new\Knihovna_SAN\DatabaseTest\obj\x86\Debug\DatabaseTest.csprojResolveAssemblyReference.cache

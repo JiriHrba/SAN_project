@@ -1,0 +1,5 @@
+E:\Dropbox\VSB_SAN\knihovna\Projekt\Knihovna_SAN\DatabaseLibrary\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Petr\Documents\School\MGR\3. semestr\Systemova analyza a navrh\new\Knihovna_SAN\DatabaseLibrary\bin\Debug\DatabaseLibrary.dll
+C:\Users\Petr\Documents\School\MGR\3. semestr\Systemova analyza a navrh\new\Knihovna_SAN\DatabaseLibrary\bin\Debug\DatabaseLibrary.pdb
+C:\Users\Petr\Documents\School\MGR\3. semestr\Systemova analyza a navrh\new\Knihovna_SAN\DatabaseLibrary\obj\x86\Debug\DatabaseLibrary.dll
+C:\Users\Petr\Documents\School\MGR\3. semestr\Systemova analyza a navrh\new\Knihovna_SAN\DatabaseLibrary\obj\x86\Debug\DatabaseLibrary.pdb
