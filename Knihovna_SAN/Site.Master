@@ -33,6 +33,7 @@
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
                         <asp:MenuItem NavigateUrl="~/Client/TestPage.aspx" Text="TestPage"/>
+                        <asp:MenuItem NavigateUrl="~/Action/ActionSummary.aspx" Text="Prehled akci"/>
 
                     </Items>
                 </asp:Menu>

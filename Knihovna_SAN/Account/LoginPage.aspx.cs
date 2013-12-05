@@ -35,7 +35,20 @@ namespace Knihovna_SAN.Account
 
                 if (loggedClient != null)
                 {
-                    FormsAuthentication.RedirectFromLoginPage(loggedClient.client_login, true);
+                    //List<string> roles = new List<string>();
+                    //// Jeslize je jmeno admin, pak dame roli admin, jinak obycejny klient.
+                    //if (loggedClient.client_login.CompareTo("admin") == 0)
+                    //{
+                    //    roles.Add("Admin");
+                    //}
+                    //else
+                    //{
+                    //    roles.Add("User");
+                    //}
+                  
+                    FormsAuthentication.RedirectFromLoginPage(loggedClient.client_name, true);
+                    //Context.User = new System.Security.Principal.GenericPrincipal(Context.User.Identity, roles.ToArray());
+                    Session["clientId"] = loggedClient.client_id;
                 }
                 else
                 {

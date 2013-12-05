@@ -13,11 +13,21 @@ namespace DatabaseLibrary
 {
     public class ActionReservationTable
     {
-        private const string INSERT_ActionReservation = "INSERT INTO actionreservation (act_reservation_date, act_reservation_client_came, action_id, client_id) VALUES (@act_reservation_date, @act_reservation_client_came, @action_id, @client_id)";
-        private const string UPDATE_ActionReservation = "UPDATE actionreservation SET act_reservation_date = @act_reservation_date, act_reservation_client_came = @act_reservation_client_came, action_id = @action_id, client_id = @client_id WHERE act_reservation_id = @act_reservation_id";
+        private const string INSERT_ActionReservation = "INSERT INTO actionreservation (act_reservation_date, act_reservation_came, action_id, client_id) VALUES (@act_reservation_date, @act_reservation_client_came, @action_id, @client_id)";
+        private const string UPDATE_ActionReservation = "UPDATE actionreservation SET act_reservation_date = @act_reservation_date, act_reservation_came = @act_reservation_client_came, action_id = @action_id, client_id = @client_id WHERE act_reservation_id = @act_reservation_id";
         private const string SELECT_ONE = "SELECT * FROM actionreservation WHERE act_reservation_id = @act_reservation_id";
         private const string SELECT_ALL = "SELECT * FROM actionreservation";
         private const string DELETE = "DELETE FROM actionreservation WHERE act_reservation_id = @act_reservation_id";
+
+        /// <summary>
+        /// Dotaz, ktery vraci pocet registrovanych uzivatelu na danou akci.
+        /// </summary>
+        private const string SELECT_COUNT_OF_REGISTERED_USER = "SELECT COUNT(client_id) FROM actionreservation WHERE action_id = @id";
+
+        /// <summary>
+        /// Dotaz, ktery vraci to, zda je uzivatel jiz registrovan na akci. 0 = neni registronan, > 0 = je registrovan.
+        /// </summary>
+        private const string SELECT_IS_CLIENT_REGISTERED = "SELECT COUNT(*) FROM actionreservation WHERE action_id = @actId AND client_id = @clientId";
 
         private string connString = null;
 
@@ -42,7 +52,7 @@ namespace DatabaseLibrary
 
                 /* Add parameters into the command */
                 command.Parameters.AddWithValue("@act_reservation_date", actRes.act_reservation_date);
-                command.Parameters.AddWithValue("@act_reservation_client", actRes.act_reservation_client_came);
+                command.Parameters.AddWithValue("@act_reservation_client_came", actRes.act_reservation_client_came);
                 command.Parameters.AddWithValue("@action_id", actRes.action_id);
                 command.Parameters.AddWithValue("@client_id", actRes.client_id);
 
@@ -64,7 +74,7 @@ namespace DatabaseLibrary
                 MySqlCommand command = new MySqlCommand(UPDATE_ActionReservation, conn);
 
                 command.Parameters.AddWithValue("@act_reservation_date", actRes.act_reservation_date);
-                command.Parameters.AddWithValue("@act_reservation_client", actRes.act_reservation_client_came);
+                command.Parameters.AddWithValue("@act_reservation_client_came", actRes.act_reservation_client_came);
                 command.Parameters.AddWithValue("@action_id", actRes.action_id);
                 command.Parameters.AddWithValue("@client_id", actRes.client_id);
 
@@ -148,6 +158,49 @@ namespace DatabaseLibrary
                 rowsAffected = command.ExecuteNonQuery();
             }
             return rowsAffected;
+        }
+
+        /// <summary>
+        /// Vraci pocet uzivatelu, kteri jsou registrovani na akci s danym id.
+        /// </summary>
+        /// <param name="actionId">id akce</param>
+        /// <returns>pocet registrovanych uzivatelu</returns>
+        public int SelectCountOfRegUser(int actionId)
+        {
+            int numberOfClients = 0;
+
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                MySqlCommand command = new MySqlCommand(SELECT_COUNT_OF_REGISTERED_USER, conn);
+                command.Parameters.AddWithValue("@id", actionId);
+                object o = command.ExecuteScalar();
+                numberOfClients = int.Parse(string.Format("{0}", o));
+            }
+            return numberOfClients;
+        }
+
+        
+        /// <summary>
+        /// Vraci true, pokud je jiz uzivatel registrovan na akci. Jinak false.
+        /// </summary>
+        /// <param name="actionId"></param>
+        /// <param name="clientId"></param>
+        /// <returns></returns>
+        public bool IsUserRegisteredToAction(int actionId, int clientId)
+        {
+            int rowCount = 0;
+
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                MySqlCommand command = new MySqlCommand(SELECT_IS_CLIENT_REGISTERED, conn);
+                command.Parameters.AddWithValue("@actId", actionId);
+                command.Parameters.AddWithValue("@clientId", clientId);
+                object o = command.ExecuteScalar();
+                rowCount = int.Parse(string.Format("{0}", o));
+            }
+            return rowCount > 0;
         }
     }
 }
