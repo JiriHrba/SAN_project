@@ -19,6 +19,11 @@ namespace DatabaseLibrary
         private const string SELECT_ONE = "SELECT * FROM Client WHERE client_id = @id";
         private const string SELECT_ALL = "SELECT * FROM Client";
 
+        /// <summary>
+        /// Tento SQL dotaz slouzi k overovani klientu pri prihlasovani.
+        /// </summary>
+        private const string LOGIN_SELECT = "SELECT * FROM Client WHERE client_login = @login AND client_pass_hash = @hash";
+
         private string connString;
 
         public ClientTable()
@@ -224,6 +229,36 @@ namespace DatabaseLibrary
                 }
             }
             return clientList;
+        }
+
+        /// <summary>
+        /// Slouzi pro prihlasovani uzivatelu. Metoda vraci objekt tridy Client, pokud uzivatel s loginem a heslem existuje. Pokud ne, 
+        /// bude vracena null hodnota.
+        /// </summary>
+        /// <param name="login">uzivatelske jmeno</param>
+        /// <param name="passHash">MD5 hash hesla</param>
+        /// <returns>instance klienta nebo null, pokud udaje nesouhlasi</returns>
+        public Client LoginClient(string login, string passHash)
+        {
+            Client loggedClient = null;
+            
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                MySqlCommand command = new MySqlCommand(LOGIN_SELECT, conn);
+
+                command.Parameters.AddWithValue("@login", login);
+                command.Parameters.AddWithValue("@hash", passHash);
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    loggedClient = ReadClientData(reader);
+                }                                
+            }
+            return loggedClient;
         }
 
         private Client ReadClientData(MySqlDataReader reader)

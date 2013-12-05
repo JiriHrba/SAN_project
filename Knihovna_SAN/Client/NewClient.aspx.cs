@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DatabaseLibrary;
 using System.Security.Cryptography;
+using Knihovna_SAN;
+using Knihovna_SAN.App_Code;
 
 namespace Knihovna_SAN.Client
 {
@@ -51,34 +53,13 @@ namespace Knihovna_SAN.Client
                 c.client_is_active = true;
 
                 c.client_login = TxtBoxLogin.Text;
-                c.client_pass_hash = CalculateHashMD5(TxtBoxPass.Text);
-
+                c.client_pass_hash = Cryptography.CalculateHashMD5(TxtBoxPass.Text);
+              
                 new DatabaseLibrary.ClientTable().Insert(c);
             }
         }
 
-        /// <summary>
-        /// Vraci MD5 hash.
-        /// </summary>
-        /// <param name="clearText"></param>
-        /// <returns></returns>
-        private string CalculateHashMD5(string clearText)
-        {
-            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-            byte[] tmpSource;
-            byte[] tmpHash;
-
-            tmpSource = System.Text.Encoding.UTF8.GetBytes(clearText);
-            tmpHash = md5.ComputeHash(tmpSource);
-
-            System.Text.StringBuilder s = new System.Text.StringBuilder();
-            foreach (byte b in tmpHash)
-            {
-                s.Append(b.ToString("x2").ToLower());
-            }
-            string hash = s.ToString();
-            return hash;
-        }
+        
 
     }
 }
